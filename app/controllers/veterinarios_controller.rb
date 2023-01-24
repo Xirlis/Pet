@@ -1,25 +1,26 @@
 class VeterinariosController < ApplicationController
   before_action :set_veterinario, only: %i[ show edit update destroy ]
 
-  # GET /veterinarios or /veterinarios.json
+
   def index
-    @veterinarios = Veterinario.all
+    current_page = (params[ :page] || 1).to_i
+    @veterinarios = Veterinario.page(current_page).per(2)
   end
 
-  # GET /veterinarios/1 or /veterinarios/1.json
+
   def show
   end
 
-  # GET /veterinarios/new
+
   def new
     @veterinario = Veterinario.new
   end
 
-  # GET /veterinarios/1/edit
+
   def edit
   end
 
-  # POST /veterinarios or /veterinarios.json
+
   def create
     @veterinario = Veterinario.new(veterinario_params)
 
@@ -34,7 +35,7 @@ class VeterinariosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /veterinarios/1 or /veterinarios/1.json
+
   def update
     respond_to do |format|
       if @veterinario.update(veterinario_params)
@@ -47,7 +48,7 @@ class VeterinariosController < ApplicationController
     end
   end
 
-  # DELETE /veterinarios/1 or /veterinarios/1.json
+ 
   def destroy
     @veterinario.destroy
 
@@ -58,12 +59,12 @@ class VeterinariosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+ 
     def set_veterinario
       @veterinario = Veterinario.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+
     def veterinario_params
       params.require(:veterinario).permit(:nome, :idade, :telefone, :email)
     end

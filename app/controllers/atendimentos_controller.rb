@@ -1,25 +1,24 @@
 class AtendimentosController < ApplicationController
   before_action :set_atendimento, only: %i[ show edit update destroy ]
 
-  # GET /atendimentos or /atendimentos.json
+
   def index
     @atendimentos = Atendimento.all
   end
 
-  # GET /atendimentos/1 or /atendimentos/1.json
   def show
   end
 
-  # GET /atendimentos/new
+
   def new
     @atendimento = Atendimento.new
   end
 
-  # GET /atendimentos/1/edit
+
   def edit
   end
 
-  # POST /atendimentos or /atendimentos.json
+
   def create
     @atendimento = Atendimento.new(atendimento_params)
 
@@ -34,7 +33,7 @@ class AtendimentosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /atendimentos/1 or /atendimentos/1.json
+
   def update
     respond_to do |format|
       if @atendimento.update(atendimento_params)
@@ -47,7 +46,7 @@ class AtendimentosController < ApplicationController
     end
   end
 
-  # DELETE /atendimentos/1 or /atendimentos/1.json
+
   def destroy
     @atendimento.destroy
 
@@ -58,12 +57,12 @@ class AtendimentosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_atendimento
       @atendimento = Atendimento.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+
     def atendimento_params
       params.require(:atendimento).permit(:atendimentos_data, :veterinario_id, :animal_id)
     end

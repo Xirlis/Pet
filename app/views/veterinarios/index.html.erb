@@ -3,12 +3,17 @@
 <h1>Veterinarios</h1>
 
 <div id="veterinarios">
-  <% @veterinarios.each do |veterinario| %>
-    <%= render veterinario %>
-    <p>
-      <%= link_to "Show this veterinario", veterinario %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New veterinario", new_veterinario_path %>
+  <ul>
+    <% @veterinarios.each do |veterinario| %>
+        <p>
+          <li>
+            <%= link_to veterinario.nome, veterinario %>
+          </li>
+        <p>
+    <% end %>
+  <%= render "pagination"%>
+  </div>
+    <ul>
+      <%= link_to "New veterinario", new_veterinario_path %>
+    </ul>
+  </ul>
