@@ -1,32 +1,15 @@
-<%= form_with(model: atendimento) do |form| %>
-  <% if atendimento.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(atendimento.errors.count, "error") %> prohibited this atendimento from being saved:</h2>
-
-      <ul>
-        <% atendimento.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@atendimento) do |form| %>
+  <%= form.error_notification%>
+  <%= form.error_notification message: form.object.erros[:base].to_sentence if form.object.errors[:base].present? %>
 
   <div>
-    <%= form.label :atendimentos_data, style: "display: block" %>
-    <%= form.datetime_field :atendimentos_data %>
+    <%= form.input :atendimentos_data, style: "display: block" %>
+    <%= form.association :veterinario, style: "display: block" %> 
+    <%= form.association :animal, style: "display: block" %>  
   </div>
 
   <div>
-    <%= form.label :veterinario_id, style: "display: block" %>
-    <%= form.text_field :veterinario_id %>
-  </div>
-
-  <div>
-    <%= form.label :animal_id, style: "display: block" %>
-    <%= form.text_field :animal_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.button :submit, class: "btn btn-success" %>
+    <%= link_to "voltar para atendimentos", atendimentos_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

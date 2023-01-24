@@ -1,37 +1,16 @@
-<%= form_with(model: veterinario) do |form| %>
-  <% if veterinario.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(veterinario.errors.count, "error") %> prohibited this veterinario from being saved:</h2>
-
-      <ul>
-        <% veterinario.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for veterinario do |form| %>
+  <%= form.error_notification%>
+  <%= form.error_notification message: form.object.erros[:base].to_sentence if form.object.errors[:base].present? %>
 
   <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+    <%= form.input :nome, style: "display: block" %>
+    <%= form.input :idade, style: "display: block" %>
+    <%= form.input :telefone, style: "display: block" %>
+    <%= form.input :email, style: "display: block" %>
   </div>
 
   <div>
-    <%= form.label :idade, style: "display: block" %>
-    <%= form.number_field :idade %>
-  </div>
-
-  <div>
-    <%= form.label :telefone, style: "display: block" %>
-    <%= form.number_field :telefone %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.button :submit, class: "btn btn-success" %>
+    <%= link_to "voltar para veterinarios", veterinarios_path, class: "btn btn-secondary" %>
   </div>
 <% end %>
