@@ -1,0 +1,32 @@
+<%= form_with(model: atendimento) do |form| %>
+  <% if atendimento.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(atendimento.errors.count, "error") %> prohibited this atendimento from being saved:</h2>
+
+      <ul>
+        <% atendimento.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :atendimentos_data, style: "display: block" %>
+    <%= form.datetime_field :atendimentos_data %>
+  </div>
+
+  <div>
+    <%= form.label :veterinario_id, style: "display: block" %>
+    <%= form.text_field :veterinario_id %>
+  </div>
+
+  <div>
+    <%= form.label :animal_id, style: "display: block" %>
+    <%= form.text_field :animal_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
