@@ -76,3 +76,6 @@ gem "kaminari", "~> 1.2"
 gem "simple_form", "~> 5.1"
 
 gem "bootstrap", "~> 5.2"
+
+gem "devise", "~> 4.8"
+gem "devise-i18n", "~> 1.10"
