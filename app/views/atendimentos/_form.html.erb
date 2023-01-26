@@ -4,8 +4,8 @@
 
   <div>
     <%= form.input :atendimentos_data, style: "display: block" %>
-    <%= form.association :veterinario, collection: Veterinario.sorted.name, prompt: "escolha um veterinario" ,style: "display: block" %> 
-    <%= form.association :animal, collection: Animal.name.sorted, prompt: "escolha um animal" ,style: "display: block" %>  
+    <%= form.association :veterinario, collection: Veterinario.sorted ,style: "display: block" %> 
+    <%= form.association :animal, collection: Animal.sorted ,style: "display: block" %>  
   </div>
 
   <div>

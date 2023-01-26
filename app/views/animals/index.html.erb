@@ -1,19 +1,19 @@
 
 
-<h1>Animals</h1>
+<h1>Animais</h1>
 
 <div id="animals">
   <ul>
     <% @animals.each do |animal| %>
       <p>  
         <li>
-          <%= link_to animal.nome, animal %>
+          <%= render animal %>
         </li>
       </p>
     <% end %>
   <%= render "pagination" %>
   </div>
     <ul>
-      <%= link_to "New animal", new_animal_path, class: "btn btn-primary" %>
+      <%= link_to "Novo animal", new_animal_path, class: "btn btn-primary" %>
     </ul>
   </ul>

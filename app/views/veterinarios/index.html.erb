@@ -7,13 +7,17 @@
     <% @veterinarios.each do |veterinario| %>
         <p>
           <li>
-            <%= link_to veterinario.nome, veterinario %>
+            <%= render veterinario %>
           </li>
         <p>
     <% end %>
   <%= render "pagination"%>
   </div>
     <ul>
-      <%= link_to "New veterinario", new_veterinario_path, class: "btn btn-primary" %>
+      <%= link_to "Novo veterinario", new_veterinario_path, class: "btn btn-primary" %>
+      <%= link_to veterinarios_path(format: :csv), class:"btn btn-success" do %>
+                            <span>Baixar CSV </span>
+
+                        <% end %>
     </ul>
   </ul>

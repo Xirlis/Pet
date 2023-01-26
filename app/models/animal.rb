@@ -1,6 +1,6 @@
 class Animal < ApplicationRecord
-    has_many :atendimentos
-    has_many :animals, through: :atendimentos
+    has_many :atendimentos, :dependent => :destroy
+    has_many :veterinarios, through: :atendimentos
 
     scope :sorted, -> { order(:name)}
 

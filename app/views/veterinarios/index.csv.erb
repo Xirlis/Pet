@@ -1,0 +1,9 @@
+<%= fields = [:id, :nome, :email,  :idade, :telefone].join(";")%>
+<% @veterinarios.each do |veterinario|%>
+<% id = veterinario.id %>
+<% nome = veterinario.nome %>
+<% email = veterinario.email%>
+<% idade = veterinario.idade%>
+<% telefone = veterinario.telefone%>
+<%= [id.to_s, nome, idade.to_s, email, telefone.to_s].join(";")%>
+<% end %>

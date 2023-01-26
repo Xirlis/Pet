@@ -2,7 +2,7 @@
   <%= form.error_notification%>
   <%= form.error_notification message: form.object.erros[:base].to_sentence if form.object.errors[:base].present? %>
 
-    <%= form.input :nome, style: "display: block", class: "padding: 10px" %>
+    <%= form.input :nome, style: "display: block"  %>
     <%= form.input :idade, style: "display: block"  %>
     <%= form.input :sexo, style: "display: block"  %>
 

@@ -1,10 +1,8 @@
-
-
 <%= render @animal %>
 
 <div>
-  <%= link_to "Edit this animal", edit_animal_path(@animal) %> |
-  <%= link_to "Back to animals", animals_path %>
+  <%= link_to "Editar esse animal", edit_animal_path(@animal), class: "btn btn-primary" %> |
+  <%= link_to "Voltar para animais", animals_path, class: "btn btn-secondary" %>
 
-  <%= button_to "Destroy this animal", @animal, method: :delete %>
+  <%= button_to "Apagar esse animal", @animal, method: :delete, class: "btn btn-danger" %>
 </div>
