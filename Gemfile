@@ -83,3 +83,6 @@ gem "devise-i18n", "~> 1.10"
 
 
 gem "csv", "~> 1.0"
+
+
+gem 'validates_email_format_of'

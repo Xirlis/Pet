@@ -4,7 +4,7 @@ class Animal < ApplicationRecord
 
     scope :sorted, -> { order(:name)}
 
-    validates :nome, presence: true, length: {minimum: 5}
+    validates :nome, presence: true, length: {minimum: 3}
     validates :idade, presence: true
     validates :sexo, presence: true, length: {minimum: 1, maximum: 1} 
 

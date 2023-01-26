@@ -1,0 +1,7 @@
+<%= fields = [:atendimentos_data, :veterinario, :animal].join(";")%>
+<% @atendimentos.each do |atendimento|%>
+<% data = atendimento.atendimentos_data %>
+<% veterinario = atendimento.veterinario.nome %>
+<% animal = atendimento.animal.nome%>
+<%= [data.to_s, veterinario, animal].join(";")%>
+<% end %>

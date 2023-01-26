@@ -7,5 +7,10 @@
     <%= render atendimento %>
   <% end %>
 </div>
-
+<ul>
 <%= link_to "Novo atendimento", new_atendimento_path, class: "btn btn-primary" %>
+      <%= link_to atendimentos_path(format: :csv), class:"btn btn-success" do %>
+                            <span>Baixar CSV </span>
+
+                        <% end %>
+</ul>
