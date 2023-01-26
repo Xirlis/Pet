@@ -26,7 +26,7 @@ class VeterinariosController < ApplicationController
 
     respond_to do |format|
       if @veterinario.save
-        format.html { redirect_to veterinario_url(@veterinario), notice: "Veterinario was successfully created." }
+        format.html { redirect_to veterinarios_url(@veterinario), notice: "Novo veterinario criado." }
         format.json { render :show, status: :created, location: @veterinario }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class VeterinariosController < ApplicationController
   def update
     respond_to do |format|
       if @veterinario.update(veterinario_params)
-        format.html { redirect_to veterinario_url(@veterinario), notice: "Veterinario was successfully updated." }
+        format.html { redirect_to veterinario_url(@veterinario), notice: " updated realizado." }
         format.json { render :show, status: :ok, location: @veterinario }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class VeterinariosController < ApplicationController
     @veterinario.destroy
 
     respond_to do |format|
-      format.html { redirect_to veterinarios_url, alert: "Veterinario was successfully destroyed." }
+      format.html { redirect_to veterinarios_url, alert: "destruição concluida." }
       format.json { head :no_content }
     end
   end

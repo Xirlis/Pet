@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  get "download", to: "atendimentos#download"
+  get "preview", to: "atendimentos#preview"
+
   root 'home#index'
   resources :atendimentos
   resources :animals

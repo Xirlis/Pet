@@ -86,3 +86,4 @@ gem "csv", "~> 1.0"
 
 
 gem 'validates_email_format_of'
+gem "prawn", "~> 2.4"

@@ -1,9 +1,32 @@
 class AtendimentosController < ApplicationController
   before_action :set_atendimento, only: %i[ show edit update destroy ]
 
+  def download
+    @atendimentos= Atendimento.all
+    pdf= Prawn::Document.new
+    pdf.text "Atendimentos"
+    pdf.move_down 25
+
+    @atendimentos.each do |atendimento|
+      pdf.text "#########################atendimento-#{atendimento.id.to_s}##############################"
+      pdf.move_down 5
+      pdf.text "Nome do Veterinario: #{atendimento.veterinario.nome}"
+      pdf.move_down 5
+      pdf.text "Nome do animal: #{atendimento.animal.nome}"
+    end
+      send_data(pdf.render,
+      filename: "Atendimentos.pdf",
+      type:"application/pdf")
+end
+
+  def preview
+    
+  end
+
 
   def index
-    @atendimentos = Atendimento.all
+    current_page = (params[ :page] || 1).to_i
+    @atendimentos = Atendimento.page(current_page).per(2)
   end
 
   def show
@@ -24,7 +47,7 @@ class AtendimentosController < ApplicationController
 
     respond_to do |format|
       if @atendimento.save
-        format.html { redirect_to atendimento_url(@atendimento), notice: "Atendimento was successfully created." }
+        format.html { redirect_to atendimentos_url(@atendimento), notice: "Novo atendimento criado." }
         format.json { render :show, status: :created, location: @atendimento }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +60,7 @@ class AtendimentosController < ApplicationController
   def update
     respond_to do |format|
       if @atendimento.update(atendimento_params)
-        format.html { redirect_to atendimento_url(@atendimento), notice: "Atendimento was successfully updated." }
+        format.html { redirect_to atendimento_url(@atendimento), notice: " updated realizado." }
         format.json { render :show, status: :ok, location: @atendimento }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +74,7 @@ class AtendimentosController < ApplicationController
     @atendimento.destroy
 
     respond_to do |format|
-      format.html { redirect_to atendimentos_url, notice: "Atendimento was successfully destroyed." }
+      format.html { redirect_to atendimentos_url, notice: "destruição concluida." }
       format.json { head :no_content }
     end
   end
