@@ -19,11 +19,6 @@ class AtendimentosController < ApplicationController
       type:"application/pdf")
 end
 
-  def preview
-    
-  end
-
-
   def index
     current_page = (params[ :page] || 1).to_i
     @atendimentos = Atendimento.page(current_page).per(2)
@@ -35,10 +30,13 @@ end
 
   def new
     @atendimento = Atendimento.new
+
   end
 
 
   def edit
+    @veterinarios = Veterinario.all
+    @animais = Animal.all
   end
 
 

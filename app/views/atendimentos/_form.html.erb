@@ -1,11 +1,10 @@
 <%= simple_form_for(@atendimento) do |f| %>
   <%= f.error_notification%>
   <%= f.error_notification message: f.object.erros[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="f-inputs">
     <%= f.input :atendimentos_data, style: "display: block" %>
-    <%= f.association :veterinario, collection: Veterinario.sorted ,style: "display: block" %> 
-    <%= f.association :animal, collection: Animal.sorted ,style: "display: block" %>  
+    <%= f.association :veterinario, collection: Veterinario.all ,style: "display: block" %>
+    <%= f.association :animal, collection: Animal.sorted ,style: "display: block" %>
   </div>
 
   <div class="f-inputs" style="padding: 20px">

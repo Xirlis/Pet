@@ -2,9 +2,7 @@
 
 <%= render @atendimento %>
 
-<div>
-  <%= link_to "Editar esse atendimento", edit_atendimento_path(@atendimento), class: "btn btn-primary" %> |
-  <%= link_to "Voltar para atendimentos", atendimentos_path, class: "btn btn-secondary" %>
-
-  <%= button_to "Apagar esse atendimento", @atendimento, method: :delete, class: "btn btn-danger" %>
+<div style="padding:5px">
+ <span><%= link_to "Voltar para atendimentos", atendimentos_path, class: "btn btn-secondary" %></span>
+ <span><%= button_to "Apagar esse atendimento", @atendimento, method: :delete, class: "btn btn-danger" %></span>
 </div>

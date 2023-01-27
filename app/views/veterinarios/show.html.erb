@@ -3,7 +3,6 @@
 <%= render @veterinario %>
 
 <div>
-  <%= link_to "Editar esse veterinario", edit_veterinario_path(@veterinario), class: "btn btn-primary" %> 
   <%= link_to "Voltar para veterinarios", veterinarios_path, class: "btn btn-secondary" %>
   <%= button_to "Apagar esse veterinario", @veterinario, method: :delete, class: "btn btn-danger"%>
 </div>

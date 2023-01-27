@@ -2,7 +2,7 @@ class Animal < ApplicationRecord
     has_many :atendimentos, :dependent => :destroy
     has_many :veterinarios, through: :atendimentos
 
-    scope :sorted, -> { order(:name)}
+    scope :sorted, -> { order(:nome)}
 
     validates :nome, presence: true, length: {minimum: 3}
     validates :idade, presence: true
