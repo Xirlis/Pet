@@ -30,13 +30,10 @@ end
 
   def new
     @atendimento = Atendimento.new
-
   end
 
 
   def edit
-    @veterinarios = Veterinario.all
-    @animais = Animal.all
   end
 
 

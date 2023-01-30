@@ -1,4 +1,4 @@
 class Atendimento < ApplicationRecord
-  belongs_to :veterinario
-  belongs_to :animal
+  belongs_to :veterinario, :optional => true
+  belongs_to :animal, :optional => true
 end
