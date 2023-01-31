@@ -4,15 +4,17 @@ class AtendimentosController < ApplicationController
   def download
     @atendimentos= Atendimento.all
     pdf= Prawn::Document.new
-    pdf.text "Atendimentos"
+    pdf.text "Clínica de animais", :size => 20, :style => :bold
     pdf.move_down 25
+    a= 1
 
     @atendimentos.each do |atendimento|
-      pdf.text "#########################atendimento-#{atendimento.id.to_s}##############################"
+      pdf.text "atendimento-#{a.to_s}", :size => 20, :style => :bold, :align => :center
       pdf.move_down 5
       pdf.text "Nome do Veterinario: #{atendimento.veterinario.nome}"
       pdf.move_down 5
       pdf.text "Nome do animal: #{atendimento.animal.nome}"
+      a=a+1
     end
       send_data(pdf.render,
       filename: "Atendimentos.pdf",

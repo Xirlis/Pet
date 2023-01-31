@@ -4,7 +4,7 @@ class AnimalsController < ApplicationController
 
   def index
     current_page = (params[ :page] || 1).to_i
-    @animals = Animal.sorted.page(current_page).per(2)
+    @animals = Animal.page(current_page).per(2)
   end
 
 

@@ -4,7 +4,7 @@ class VeterinariosController < ApplicationController
 
   def index
     current_page = (params[ :page] || 1).to_i
-    @veterinarios = Veterinario.sorted.page(current_page).per(2)
+    @veterinarios = Veterinario.page(current_page).per(2)
   end
 
 
